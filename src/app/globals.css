@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+@theme {
+  --color-gold: #C9A84C;
+  --color-gold-light: #E8C96A;
+  --color-navy: #0B1C3F;
+  --color-navy-dark: #060E1F;
+  --color-ivory: #F8F4EC;
+  --color-burgundy: #6B1D2A;
+  --color-text-primary: #1A1A2E;
+  --color-text-light: #F8F4EC;
+
+  --font-family-cinzel: var(--font-cinzel), serif;
+  --font-family-cormorant: var(--font-cormorant), serif;
+  --font-family-inter: var(--font-inter), sans-serif;
+}
+
 :root {
   --gold: #C9A84C;
   --gold-light: #E8C96A;
