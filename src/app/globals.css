@@ -3,21 +3,17 @@
 :root {
   --gold: #C9A84C;
   --gold-light: #E8C96A;
+  --gold-glow: rgba(201, 168, 76, 0.3);
   --navy: #0B1C3F;
   --navy-dark: #060E1F;
   --ivory: #F8F4EC;
   --burgundy: #6B1D2A;
   --text-primary: #1A1A2E;
   --text-light: #F8F4EC;
-}
 
-@theme inline {
-  --color-gold: var(--gold);
-  --color-navy: var(--navy);
-  --color-ivory: var(--ivory);
-  --color-text-primary: var(--text-primary);
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-serif);
+  --font-cinzel: var(--font-cinzel);
+  --font-cormorant: var(--font-cormorant);
+  --font-inter: var(--font-inter);
 }
 
 html {
@@ -50,7 +46,61 @@ button {
   color: var(--text-light);
 }
 
-/* Gradient utilities */
+/* Custom Keyframes */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-slow-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes light-sweep {
+  0%, 100% { transform: translateX(-100%) rotate(45deg); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(100%) rotate(45deg); opacity: 0; }
+}
+
+@keyframes bounce-chevron {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}
+
+@keyframes float-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Utility Classes */
+.font-cinzel { font-family: var(--font-cinzel); }
+.font-cormorant { font-family: var(--font-cormorant); }
+.font-inter { font-family: var(--font-inter); }
+
+.spin-slow { animation: spin-slow 20s linear infinite; }
+.spin-slow-reverse { animation: spin-slow-reverse 30s linear infinite; }
+.light-sweep { animation: light-sweep 4s ease-in-out infinite; }
+.bounce-chevron { animation: bounce-chevron 2s ease-in-out infinite; }
+
+.backdrop-blur-lg { backdrop-filter: blur(12px); }
+
 .bg-gradient-radial {
   background-image: radial-gradient(var(--tw-gradient-stops));
 }

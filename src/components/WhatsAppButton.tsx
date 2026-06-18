@@ -14,7 +14,7 @@ export default function WhatsAppButton() {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-40 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-200"
+        className="fixed bottom-6 right-6 z-40 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl hover:shadow-[0_0_30px_rgba(37,211,102,0.4)] transition-all duration-300"
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
         animate={{
@@ -23,7 +23,6 @@ export default function WhatsAppButton() {
         transition={{
           duration: 2,
           repeat: Infinity,
-          ease: 'easeInOut',
         }}
         whileHover={{ scale: 1.15 }}
         whileTap={{ scale: 0.95 }}
@@ -45,7 +44,7 @@ export default function WhatsAppButton() {
 
       {showTooltip && (
         <motion.div
-          className="fixed bottom-24 right-6 z-40 bg-navy text-text-light px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap pointer-events-none"
+          className="fixed bottom-24 right-6 z-40 bg-navy text-text-light px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap pointer-events-none shadow-lg"
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 8 }}

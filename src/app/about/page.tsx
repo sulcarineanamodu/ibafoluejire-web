@@ -1,80 +1,129 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
+'use client'
 
-export const metadata: Metadata = {
-  title: 'About | Ibafoluejire Global Services Ltd',
-  description: 'Our story, mission, and vision for preserving and celebrating Yoruba culture, language, and ceremony.',
-};
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { PatternOverlay } from '@/components/PatternOverlay'
 
-export default function AboutPage() {
+export default function About() {
   return (
-    <div className="pt-20">
-      {/* Hero */}
-      <section className="bg-navy text-text-light py-20">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4">Our Story</h1>
-          <div className="w-16 h-1 bg-gold mx-auto" />
+    <div className="bg-navy-dark">
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] bg-navy-dark overflow-hidden pt-32 pb-20">
+        <PatternOverlay opacity={0.06} />
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <motion.h1
+            className="font-cinzel text-5xl md:text-6xl text-ivory font-bold mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Our Story
+          </motion.h1>
+          <motion.div
+            className="h-1 w-16 bg-gold mx-auto mb-8"
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          />
+          <motion.p
+            className="font-inter text-lg text-ivory/70 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            Preserving Yoruba heritage through language, voice, and spiritual expression
+          </motion.p>
         </div>
       </section>
 
-      {/* Content */}
-      <section className="py-20 bg-white">
+      {/* Content Section */}
+      <section className="bg-ivory py-24">
         <div className="max-w-4xl mx-auto px-6 space-y-12">
           {/* Who We Are */}
-          <div>
-            <h2 className="font-serif text-3xl md:text-4xl text-navy font-bold mb-6">Who We Are</h2>
-            <p className="text-lg text-text-primary/80 leading-relaxed mb-4">
-              Ibafoluejire Global Services Ltd is a cultural, creative, and spiritual media company dedicated to preserving and promoting the Yoruba language, oral tradition, and ceremonial excellence. Through education, performance, and production, we bring the richness of Yoruba heritage to life — from intimate private lessons to grand ceremonial productions.
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="font-cinzel text-4xl text-navy font-bold mb-6">Who We Are</h2>
+            <p className="font-inter text-lg text-navy/70 leading-relaxed mb-4">
+              Ibafoluejire Global Services Ltd is a cultural, creative, and spiritual media company dedicated to
+              preserving and promoting the Yoruba language, oral tradition, and ceremonial excellence. Through
+              education, performance, and production, we bring the richness of Yoruba heritage to life.
             </p>
-            <p className="text-lg text-text-primary/80 leading-relaxed">
-              Based in Nigeria and serving clients globally, we are committed to ensuring that Yoruba culture receives the premium presentation and reverent treatment it deserves.
-            </p>
-          </div>
+          </motion.div>
 
           {/* Mission */}
-          <div className="bg-gold/10 p-8 rounded-lg border-l-4 border-gold">
-            <h2 className="font-serif text-3xl md:text-4xl text-navy font-bold mb-4">Our Mission</h2>
-            <p className="text-lg text-text-primary/80 leading-relaxed">
-              To be the foremost creative platform connecting the world to Yoruba culture, language, and spiritual expression through professional services, innovative teaching, and deeply respectful ceremony.
+          <motion.div
+            className="bg-gold/10 p-8 rounded-2xl border-l-4 border-gold"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="font-cinzel text-3xl text-navy font-bold mb-4">Our Mission</h2>
+            <p className="font-inter text-lg text-navy/70 leading-relaxed">
+              To be the foremost creative platform connecting the world to Yoruba culture, language, and spiritual
+              expression through professional services, innovative teaching, and deeply respectful ceremony.
             </p>
-          </div>
+          </motion.div>
 
           {/* Vision */}
-          <div className="bg-ivory p-8 rounded-lg border-l-4 border-navy">
-            <h2 className="font-serif text-3xl md:text-4xl text-navy font-bold mb-4">Our Vision</h2>
-            <p className="text-lg text-text-primary/80 leading-relaxed">
-              A world where Yoruba language, Ewi, and cultural ceremony are celebrated with the premium presentation and spiritual depth they deserve, passed down with pride to future generations.
+          <motion.div
+            className="bg-navy p-8 rounded-2xl border-l-4 border-gold"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          >
+            <h2 className="font-cinzel text-3xl text-gold font-bold mb-4">Our Vision</h2>
+            <p className="font-inter text-lg text-ivory/70 leading-relaxed">
+              A world where Yoruba language, Ewi, and cultural ceremony are celebrated with the premium presentation
+              and spiritual depth they deserve, passed down with pride to future generations.
             </p>
-          </div>
+          </motion.div>
 
           {/* Values */}
           <div>
-            <h2 className="font-serif text-3xl md:text-4xl text-navy font-bold mb-8">Our Core Values</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <h2 className="font-cinzel text-3xl text-navy font-bold mb-8">Core Values</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { title: 'Cultural Integrity', desc: 'Unwavering respect for Yoruba traditions and sacred protocols.' },
-                { title: 'Spiritual Depth', desc: 'Every service infused with reverence and meaningful connection.' },
-                { title: 'Professional Excellence', desc: 'Premium quality in production, teaching, and ceremony.' },
+                { title: 'Cultural Integrity', desc: 'Unwavering respect for Yoruba traditions' },
+                { title: 'Spiritual Depth', desc: 'Reverence infused in every service' },
+                { title: 'Professional Excellence', desc: 'Premium quality in all we create' },
               ].map((value, i) => (
-                <div key={i} className="bg-white p-6 rounded-lg border-t-4 border-gold shadow-sm">
-                  <h3 className="font-semibold text-navy text-xl mb-3">{value.title}</h3>
-                  <p className="text-text-primary/80">{value.desc}</p>
-                </div>
+                <motion.div
+                  key={i}
+                  className="bg-white p-6 rounded-lg border-t-4 border-gold shadow-sm hover:shadow-lg transition-shadow"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: i * 0.1 }}
+                >
+                  <h3 className="font-cormorant text-xl text-gold font-semibold mb-3">{value.title}</h3>
+                  <p className="font-inter text-navy/70">{value.desc}</p>
+                </motion.div>
               ))}
             </div>
           </div>
 
           {/* CTA */}
-          <div className="text-center pt-8">
+          <motion.div
+            className="text-center pt-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
             <Link
               href="/contact"
-              className="inline-block px-8 py-3 bg-navy text-text-light font-semibold rounded-lg hover:bg-navy-dark transition-colors"
+              className="inline-block px-8 py-4 bg-navy text-ivory font-semibold rounded-lg hover:bg-navy-dark transition-colors"
             >
               Get in Touch
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>
-  );
+  )
 }

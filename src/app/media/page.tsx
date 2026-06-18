@@ -1,131 +1,144 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { Music, Video, MessageSquare } from 'lucide-react';
+'use client'
 
-export const metadata: Metadata = {
-  title: 'Media Showcase | Ibafoluejire Global Services Ltd',
-  description: 'Experience our Ewi chanting, jingles, performances, and client testimonials.',
-};
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { Music, Video, MessageSquare } from 'lucide-react'
+import { PatternOverlay } from '@/components/PatternOverlay'
 
-export default function MediaPage() {
+export default function Media() {
   return (
-    <div className="pt-20">
+    <div className="bg-navy-dark">
       {/* Hero */}
-      <section className="bg-navy text-text-light py-20">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4">Experience the Culture</h1>
-          <p className="text-text-light/80 max-w-2xl mx-auto">Hear, see, and feel the magic of Yoruba culture through our work.</p>
-          <div className="w-16 h-1 bg-gold mx-auto mt-6" />
+      <section className="relative min-h-[50vh] bg-navy-dark overflow-hidden pt-32 pb-20">
+        <PatternOverlay opacity={0.06} />
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <motion.h1
+            className="font-cinzel text-5xl md:text-6xl text-ivory font-bold mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Experience the Culture
+          </motion.h1>
+          <motion.p
+            className="font-inter text-lg text-ivory/70"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Hear, see, and feel the magic of Yoruba culture through our work
+          </motion.p>
         </div>
       </section>
 
       {/* Audio Samples */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 mb-20">
-          <h2 className="font-serif text-3xl md:text-4xl text-navy font-bold mb-12 text-center">
-            Audio Samples
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { icon: <Music className="w-8 h-8" />, title: 'Ewi Chanting', desc: 'Ancient Yoruba spoken word & poetry performances' },
-              { icon: <Music className="w-8 h-8" />, title: 'Jingles', desc: 'Custom composition jingles for brands & businesses' },
-              { icon: <Music className="w-8 h-8" />, title: 'Oríkì Olódùmarè', desc: 'Sacred worship & praise performances' },
-              { icon: <Music className="w-8 h-8" />, title: 'Tributes', desc: 'Ceremonial tribute narratives & recordings' },
-              { icon: <Music className="w-8 h-8" />, title: 'Teaching Samples', desc: 'Language lessons & pronunciation guides' },
-              { icon: <Music className="w-8 h-8" />, title: 'Event Highlights', desc: 'Recordings from ceremonies & events' },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="border-2 border-dashed border-gold/40 rounded-lg p-8 text-center hover:border-gold transition-colors"
-              >
-                <div className="text-gold mb-4 flex justify-center">{item.icon}</div>
-                <h3 className="font-semibold text-navy text-lg mb-2">{item.title}</h3>
-                <p className="text-text-primary/70 text-sm mb-6">{item.desc}</p>
-                <div className="w-16 h-16 mx-auto bg-navy/5 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-navy text-2xl">▶</span>
-                </div>
-                <p className="text-navy/40 text-xs">Coming Soon</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="bg-gold/10 rounded-lg p-8 text-center max-w-2xl mx-auto mb-20">
-          <p className="text-text-primary/80">
-            Audio samples coming soon. In the meantime, reach out to request a sample of our work or to discuss your project needs.
-          </p>
-        </div>
-      </section>
-
-      {/* Video Gallery Placeholder */}
-      <section className="py-20 bg-ivory">
-        <div className="max-w-7xl mx-auto px-6 mb-20">
-          <h2 className="font-serif text-3xl md:text-4xl text-navy font-bold mb-12 text-center">
-            Video Performances
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              { title: 'Ceremony Highlights', desc: 'Behind-the-scenes from weddings, naming ceremonies, and events' },
-              { title: 'Performance Reels', desc: 'Ewi chanting, worship performances, and cultural presentations' },
-              { title: 'Teaching Videos', desc: 'Yoruba language tutorials & cultural education content' },
-              { title: 'Client Testimonials (Video)', desc: 'See what clients say about working with us' },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="border-2 border-dashed border-gold/40 rounded-lg p-8 flex flex-col items-center justify-center min-h-64 hover:border-gold transition-colors"
-              >
-                <Video className="text-navy/20 mb-4" size={48} />
-                <h3 className="font-semibold text-navy text-lg mb-2 text-center">{item.title}</h3>
-                <p className="text-text-primary/70 text-sm text-center mb-6">{item.desc}</p>
-                <p className="text-navy/40 text-xs">Coming Soon</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="bg-gold/10 rounded-lg p-8 text-center max-w-2xl mx-auto mb-20">
-          <p className="text-text-primary/80">
-            Video content coming soon. Subscribe to our channels for the latest performances and updates.
-          </p>
-        </div>
-      </section>
-
-      {/* Testimonials Placeholder */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 mb-20">
-          <h2 className="font-serif text-3xl md:text-4xl text-navy font-bold mb-12 text-center">
-            Client Testimonials
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className="border-2 border-dashed border-gold/40 rounded-lg p-8 text-center hover:border-gold transition-colors"
-              >
-                <MessageSquare className="text-navy/20 mx-auto mb-4" size={32} />
-                <div className="text-gold text-lg mb-4">⭐ ⭐ ⭐ ⭐ ⭐</div>
-                <p className="text-text-primary/70 italic mb-6 text-sm">
-                  "Testimonial from a satisfied client..."
-                </p>
-                <p className="text-navy font-semibold text-sm">Client Name</p>
-                <p className="text-text-primary/60 text-xs">Service Type</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="bg-gold/10 rounded-lg p-8 text-center max-w-2xl mx-auto">
-          <p className="text-text-primary/80 mb-6">
-            Client testimonials coming soon as we build our portfolio of satisfied clients.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block px-8 py-3 bg-navy text-text-light font-semibold rounded-lg hover:bg-navy-dark transition-colors"
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-6 mb-24">
+          <motion.h2
+            className="font-cinzel text-4xl text-ivory text-center font-bold mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
           >
-            Request a Sample
-          </Link>
+            Audio Samples
+          </motion.h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: Music, title: 'Ewi Chanting', desc: 'Yoruba spoken word performances' },
+              { icon: Music, title: 'Jingles', desc: 'Custom audio compositions' },
+              { icon: Music, title: 'Oríkì Olódùmarè', desc: 'Sacred worship content' },
+              { icon: Music, title: 'Tribute Recordings', desc: 'Ceremonial tributes' },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="p-8 rounded-2xl text-center border-2 border-dashed border-gold/40"
+              >
+                <item.icon className="w-8 h-8 text-gold mx-auto mb-4" />
+                <h3 className="font-cormorant text-lg text-ivory font-semibold mb-2">{item.title}</h3>
+                <p className="font-inter text-sm text-ivory/70 mb-6">{item.desc}</p>
+                <p className="text-navy/40 text-xs">Coming Soon</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Video */}
+        <div className="max-w-7xl mx-auto px-6 mb-24">
+          <motion.h2
+            className="font-cinzel text-4xl text-ivory text-center font-bold mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Video Performances
+          </motion.h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              { title: 'Ceremony Highlights', desc: 'Behind-the-scenes from events' },
+              { title: 'Performance Reels', desc: 'Ewi, worship, and cultural presentations' },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="p-8 rounded-2xl text-center border-2 border-dashed border-gold/40 min-h-64 flex flex-col items-center justify-center"
+              >
+                <Video className="w-12 h-12 text-navy/20 mb-4" />
+                <h3 className="font-cormorant text-lg text-ivory font-semibold mb-2">{item.title}</h3>
+                <p className="font-inter text-sm text-ivory/70">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Testimonials */}
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.h2
+            className="font-cinzel text-4xl text-ivory text-center font-bold mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Client Testimonials
+          </motion.h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {[1, 2, 3].map((i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="p-8 rounded-2xl text-center border-2 border-dashed border-gold/40"
+              >
+                <MessageSquare className="w-8 h-8 text-navy/20 mx-auto mb-4" />
+                <div className="text-gold text-lg mb-4">⭐ ⭐ ⭐ ⭐ ⭐</div>
+                <p className="text-ivory/70 italic text-sm mb-6">Coming soon...</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            <Link
+              href="/contact"
+              className="inline-block px-8 py-4 bg-gold text-navy font-semibold rounded-lg hover:bg-gold-light transition-colors"
+            >
+              Request a Sample
+            </Link>
+          </motion.div>
         </div>
       </section>
     </div>
-  );
+  )
 }
