@@ -1,0 +1,68 @@
+import type { Metadata, Viewport } from "next";
+import { Inter, Cormorant_Garamond } from "next/font/google";
+import "./globals.css";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: ["600", "700"],
+});
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
+export const metadata: Metadata = {
+  title: 'Ibafoluejire Global Services Ltd | Yoruba Culture, Language & Events',
+  description: 'Premium Yoruba language online classes, Ewi chanting, MC compere services, jingle production, wedding ceremonies, burial tributes, and church programs.',
+  keywords: [
+    'Yoruba language online classes',
+    'Learn Yoruba online',
+    'Yoruba Ewi chanting',
+    'Yoruba MC for events',
+    'Nigerian wedding MC',
+    'Yoruba traditional ceremony MC',
+    'Oriki Olodumare',
+    'Yoruba jingle production',
+    'Burial tribute songs Nigeria',
+    'Yoruba cultural education'
+  ],
+  openGraph: {
+    title: 'Ibafoluejire Global Services Ltd',
+    description: 'Yoruba Culture, Voice, Worship & Events — Premium Creative & Cultural Services',
+    type: 'website',
+  }
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="en"
+      className={`${inter.variable} ${cormorantGaramond.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col font-sans text-text-primary bg-white">
+        <Navbar />
+        <main className="flex-1">
+          {children}
+        </main>
+        <Footer />
+        <WhatsAppButton />
+      </body>
+    </html>
+  );
+}

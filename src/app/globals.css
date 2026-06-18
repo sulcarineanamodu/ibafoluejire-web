@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C96A;
+  --navy: #0B1C3F;
+  --navy-dark: #060E1F;
+  --ivory: #F8F4EC;
+  --burgundy: #6B1D2A;
+  --text-primary: #1A1A2E;
+  --text-light: #F8F4EC;
+}
+
+@theme inline {
+  --color-gold: var(--gold);
+  --color-navy: var(--navy);
+  --color-ivory: var(--ivory);
+  --color-text-primary: var(--text-primary);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-serif);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: white;
+  color: var(--text-primary);
+  font-family: var(--font-inter);
+}
+
+a {
+  transition: color 0.2s ease-in-out;
+}
+
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+::selection {
+  background-color: var(--navy);
+  color: var(--text-light);
+}
+
+::-moz-selection {
+  background-color: var(--navy);
+  color: var(--text-light);
+}
+
+/* Gradient utilities */
+.bg-gradient-radial {
+  background-image: radial-gradient(var(--tw-gradient-stops));
+}
