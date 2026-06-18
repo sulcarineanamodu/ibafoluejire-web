@@ -4,7 +4,6 @@ import "./globals.css";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
@@ -63,14 +62,12 @@ export default function RootLayout({
       className={`${cinzel.variable} ${cormorantGaramond.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-inter text-text-primary bg-white">
-        <SmoothScrollProvider>
           <Navbar />
           <main className="flex-1">
             {children}
           </main>
           <Footer />
           <WhatsAppButton />
-        </SmoothScrollProvider>
       </body>
     </html>
   );
