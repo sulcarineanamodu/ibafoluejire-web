@@ -61,7 +61,7 @@ export function CinematicHero() {
             <motion.div className="flex items-center gap-4 mb-8" variants={itemVariants}>
               <div className="h-0.5 w-12 bg-gold" />
               <p className="font-inter text-xs tracking-[0.3em] text-gold uppercase">
-                Since 1982
+                Since 2010
               </p>
             </motion.div>
 
@@ -141,13 +141,13 @@ export function CinematicHero() {
               />
 
               {/* Logo Image */}
-              <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-gold/50 flex items-center justify-center bg-navy">
-                <div className="relative w-full h-full">
+              <div className="absolute inset-0 rounded-full border-4 border-gold/50 flex items-center justify-center bg-navy-dark">
+                <div className="relative w-4/5 h-4/5">
                   <Image
-                    src="/logo.jpg"
+                    src="/logo.png"
                     alt="Ibafoluejire Logo"
                     fill
-                    className="object-cover"
+                    className="object-contain"
                     priority
                   />
                 </div>

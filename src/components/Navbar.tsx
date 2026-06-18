@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
@@ -38,10 +39,10 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-gold to-gold-light rounded-full flex items-center justify-center shadow-lg">
-            <span className="text-navy font-cinzel font-bold text-lg">I</span>
+          <div className="w-10 h-10 relative">
+            <Image src="/logo.png" alt="Ibafoluejire Logo" fill className="object-contain" />
           </div>
-          <span className="text-text-light hidden sm:inline font-cormorant font-semibold text-lg">Ibafoluejire</span>
+          <span className="text-ivory hidden sm:inline font-cormorant font-semibold text-lg">Ibafoluejire</span>
         </Link>
 
         {/* Desktop Navigation */}
